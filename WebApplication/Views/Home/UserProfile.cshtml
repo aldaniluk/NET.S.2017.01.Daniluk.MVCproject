@@ -1,0 +1,14 @@
+﻿@model WebApplication.Models.User
+@{
+    ViewBag.Title = "UserProfile";
+}
+
+<h1>@Html.DisplayFor(m => @Model.Name)</h1>
+<br />
+Логин: @Html.DisplayFor(m => @Model.Login)
+<br />
+Почта: @Html.DisplayFor(m => @Model.Email)
+<br />
+Пол: @Html.DisplayFor(m => @Model.Gender.Name)
+<br /><br />
+@Html.ActionLink("Выйти", "Logout", "Home")

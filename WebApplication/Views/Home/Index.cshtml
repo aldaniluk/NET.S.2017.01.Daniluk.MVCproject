@@ -1,0 +1,28 @@
+﻿@model IEnumerable<WebApplication.Models.User>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <h2>Привет, @User.Identity.Name!</h2>
+    }
+    else
+    {
+        <br />
+        @Html.ActionLink("Зарегистрироваться", "Register", "Home")
+        <br />
+        @Html.ActionLink("Залогиниться", "Login", "Home")
+        <br /><br />
+    }
+
+    <h1>Все зарегистрированные пользователи:</h1>
+    @foreach(var i in Model)
+    {
+        @Html.DisplayFor(m => i.Name) @: - 
+        @Html.DisplayFor(m => i.Login) @: - 
+        @Html.DisplayFor(m => i.Gender.Name)
+        <br />
+    }
+</div>
